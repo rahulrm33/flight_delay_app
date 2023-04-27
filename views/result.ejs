@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container container">
+          <input type="checkbox" name="" id="">
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+          <ul class="menu-items">
+              <li><a href="/profile">Predict Again!!</a></li>
+          </ul>
+          <h1 class="logo" style="color:#1a2e35">Flight Delay Prediction </h1>
+      </div>
+    </nav>
+    <div id="result"></div>
+    
+    <script>
+      const formData = JSON.parse(localStorage.getItem('formData'));
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Name: ${formData.strr}<br>Email: ${formData.strr}`;
+      
+      localStorage.removeItem('formData'); // remove data from local storage after displaying result
+    </script>
+  </body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Result</title>
+  </head>
+  <body>
+    <h1>Result</h1>
+    <div id="result"></div>
+    <button onclick=" window.location.replace('form1.html');"> Return</button>
+    
+    <script>
+      const formData = JSON.parse(localStorage.getItem('formData'));
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `Name: ${formData.strr}<br>Email: ${formData.strr}`;
+      
+      localStorage.removeItem('formData'); // remove data from local storage after displaying result
+    </script>
+  </body>
+</html> -->

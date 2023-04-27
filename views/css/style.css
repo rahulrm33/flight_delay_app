@@ -1,0 +1,372 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* .html{
+    font-size: 100%;
+} */
+
+.navbar input[type="checkbox"],
+.navbar .hamburger-lines{
+    display: none;
+}
+body {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 55%, rgba(154,154,154,1) 55%);
+    /* background: rgb(255,255,255); */
+/* background: linear-gradient(180deg, rgba(255,255,255,1) 51%, rgba(0,232,147,1) 52%); */
+    /* background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 51%, rgba(154,154,154,1) 52%); */
+    /* background: rgb(255,255,255); */
+/* background: linear-gradient(180deg, rgba(255,255,255,1) 53%, rgba(154,154,154,1) 53%); */
+    /* background: rgb(255,255,255); */
+/* background: linear-gradient(180deg, rgba(255,255,255,1) 49%, rgba(154,154,154,1) 53%); */
+    /* background-color: #9a9a9a ; */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.bg-image { 
+    /* The image used */
+  
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 100% 100%;
+    flex: 1;
+    height: 65%;
+    margin-top: 10%;
+    margin-left: 55px;
+}
+
+.color-line {
+    margin-top: 7px;
+    width: 100% ;
+    height: 3px;
+    background-color: #5ae4a8;
+    
+}
+
+.titleStyle {
+  text-align: center;
+}
+.submit_button {
+    color: #1a2e35;
+    background-color: #9a9a9a;
+    border-color: #9a9a9a;
+    width: 130px;
+    padding: 10px 5px;
+    margin: 0 auto;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #5ae4a8;
+    color: black;
+  }
+.actionWrapper {
+  width: 130px;
+  margin: 0 auto;
+}
+.labelWrapper {
+  width: 174px;
+}
+.labelWrapper1 {
+    width: 170px;
+  }
+.rowStyle {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+.rowStyle3 {
+  display: flex;
+  /* margin-bottom: 15px; */
+  /* align-items: center; */
+}
+
+
+.inputWrapper{
+    padding-left: 20px;
+}
+.inputWrapper1{
+    padding-left: 53px;
+}
+.content {
+   flex: 1;
+   height: 100%;
+   /* overflow: auto; */
+}
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+.newcontainer{
+    display: flex;
+    height: 100vh;
+}
+
+.navbar{
+    box-shadow: 0px 5px 10px 0px #aaa;
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    color: #000;
+    opacity: 0.85;
+    z-index: 100;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    align-items: center;
+}
+
+form {
+    border: 1px solid #1a2e35;
+    /* background: rgb(255,255,255); */
+/* background: linear-gradient(180deg, rgba(255,255,255,1) 52%, rgba(154,154,154,1) 52%); */
+    background-color: #fff;
+    /* background-color: #9a9a9a; */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+}
+
+#flightid{
+    width: 264px;
+    height: 3px;
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px; 
+}
+
+label {
+  text-align: left;
+  margin-right: 10px;
+  font-weight: bolder;
+  font-size: 16px;
+  color:#1a2e35
+}
+.menu-items{
+    order: 2;
+    display: flex;
+}
+.logo{
+    order: 1;
+    font-size: 2.3rem;
+}
+
+.menu-items li{
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.navbar a{
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover{
+    color: #117964;
+}
+
+@media (max-width: 768px){
+    .navbar{
+        opacity: 0.95;
+    }
+
+    .navbar-container input[type="checkbox"],
+    .navbar-container .hamburger-lines{
+        display: block;
+    }
+
+    .navbar-container{
+        display: block;
+        position: relative;
+        height: 64px;
+    }
+
+    .navbar-container input[type="checkbox"]{
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 30px;
+        top: 20px;
+        left: 20px;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .navbar-container .hamburger-lines{
+        display: block;
+        height: 28px;
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar-container .hamburger-lines .line{
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: #333;
+    }
+    
+    .navbar-container .hamburger-lines .line1{
+        transform-origin: 0% 0%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-container .hamburger-lines .line2{
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .navbar-container .hamburger-lines .line3{
+        transform-origin: 0% 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar .menu-items{
+        padding-top: 100px;
+        background: #fff;
+        height: 100vh;
+        max-width: 300px;
+        transform: translate(-150%);
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+        padding-left: 40px;
+        transition: transform 0.5s ease-in-out;
+        box-shadow:  5px 0px 10px 0px #aaa;
+        overflow: scroll;
+    }
+
+    .navbar .menu-items li{
+        margin-bottom: 1.8rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .logo{
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 2.5rem;
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .menu-items{
+        transform: translateX(0);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1{
+        transform: rotate(45deg);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2{
+        transform: scaleY(0);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
+        transform: rotate(-45deg);
+    }
+
+}
+
+
+.fform {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+} 
+
+.title-form{
+    padding-top: 25px;
+}
+
+.enter{
+    align-content:center ;
+
+}
+
+input {
+    width: 264px;
+    height: 3px;
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px; 
+}
+  
+form input[type="date"] {
+    width: 130px;
+    height: 3px;
+    
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px; 
+}
+form input[type="number"] {
+    width: 130px;
+    height: 3px;
+    
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px; 
+}
+form input[type="time"] {
+    width: 130px;
+    height: 3px;
+    
+    padding: 1rem 1rem 1rem 1rem;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px; 
+}
+
+select {
+    width: 264px;
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid #CCC;
+}
+
+select option { 
+    line-height: 20px;
+}
+
+.select:focus .option {
+    position:relative;
+    pointer-events:all;
+}
+
+.buttons input{
+    padding: 5px 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+}

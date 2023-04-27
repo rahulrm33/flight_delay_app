@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Login Register App</title>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> -->
+        <!-- </script> -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="navbar-container container">
+                <input type="checkbox" name="" id="">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="#">Logout</a></li>
+                </ul>
+                <h1 class="logo" style="color:#1a2e35">Flight Delay Prediction </h1>
+            </div>
+        </nav>
+        <section class="newcontainer">
+            <img src="flightPic1.jpg" class="bg-image" alt="">
+            <div class="content">
+                <div class="fform"> 
+                    <form id="myForm" >
+                        <h2 class="titleStyle" >Enter the flight details </h2>
+                        <!-- <div class="color-line"></div> -->
+                        <div class="title-form">
+                            <div class="rowStyle">
+                                <div class="labelWrapper"> 
+                                    <label for="oriloc">Origin :</label>
+                                </div>
+                                <select name="oriname" id="oriid">
+                                    <option value="ATL">Hartsfield-Jackson Atlanta</option>
+                                    <option value="CLT">Charlotte Douglas Airport</option>
+                                    <option value="DEN">Denver Airport</option>
+                                    <option value="DFW">Dallas Fort Worth Airport</option>
+                                    <option value="EWR">Newark Liberty Airport</option>
+                                    <option value="IAH">George Bush Airport</option>
+                                    <option value="JFK">John F. Kennedy Airport</option>
+                                    <option value="LAS">Mccarran Airport,LV</option>
+                                    <option value="LAX">Los Angeles Airport</option>
+                                    <option value="MCO">Orlando Airport</option>
+                                    <option value="MIA">Miami Airport</option>
+                                    <option value="ORD">Chicago O'Hare Airport</option>
+                                    <option value="PHX">Phoenix Sky Harbor Airport</option>
+                                    <option value="SEA">Seattle-Tacoma Airpor</option>
+                                    <option value="SFO">San Francisco Airport</option>
+                                </select>
+                            </div>
+                            <div class="rowStyle">
+                                <div class="labelWrapper"> 
+                                    <label for="desloc">Destination :</label>
+                                </div>
+                                <select name="destname" id="destid">
+                                    <option value="ATL">Hartsfield-Jackson Atlanta</option>
+                                    <option value="CLT">Charlotte Douglas Airport</option>
+                                    <option value="DEN">Denver Airport</option>
+                                    <option value="DFW">Dallas Fort Worth Airport</option>
+                                    <option value="EWR">Newark Liberty Airport</option>
+                                    <option value="IAH">George Bush Airport</option>
+                                    <option value="JFK">John F. Kennedy Airport</option>
+                                    <option value="LAS">Mccarran Airport,LV</option>
+                                    <option value="LAX">Los Angeles Airport</option>
+                                    <option value="MCO">Orlando Airport</option>
+                                    <option value="MIA">Miami Airport</option>
+                                    <option value="ORD">Chicago O'Hare Airport</option>
+                                    <option value="PHX">Phoenix Sky Harbor Airport</option>
+                                    <option value="SEA">Seattle-Tacoma Airpor</option>
+                                    <option value="SFO">San Francisco Airport</option>
+                                </select>
+                            </div>
+                            <label for="departureDate">Departure Date / Time:</label>
+                                <input type="date" id="ddateid" name="datename">
+                                <input type="time" id="depTime" value="16:01:01"><br><br>
+                            <div class="rowStyle3">    
+                                    <label for="arrivalDate">Arrival    Date / Time       :   </label>
+                                <div class="inputWrapper">
+                                    <input type="date" id="adateid" name="datename">
+                                    <input type="time" id="arrTime" value="15:01:01"><br><br>
+                                </div>
+                            </div>
+                            <div class="rowStyle">
+                                <div class="labelWrapper">
+                                <label for="aircraftCode">Aircraft Code :</label>
+                                </div>
+                                <input type="text" id="aircraftid" name="aircrafname">
+                            </div>
+                            <div class="rowStyle">
+                                <div class="labelWrapper"> 
+                                <label for="carrierCode">Carrier Date :</label>
+                                </div>
+                                <input type="text" id="carrierid" name="carriername">
+                            </div>
+                            <div class="rowStyle">
+                                <div class="labelWrapper"> 
+                                <label for="flightNumber">Flight Number :</label>
+                                </div>
+                                <input type="number" id="flightid" name="flightname">
+                            </div>
+        
+                        <!-- <label for="PD">Duration Period :</label>
+                                <input type="number" id="yid" name="destname">
+                                <input type="number" id="mid" name="destname">
+                                <input type="number" id="did" name="destname"><br><br> -->
+                                <div class="rowStyle3"> 
+                                    <label for="PD">Duration Time :</label>
+                                    <div class="inputWrapper1">
+                                        <input type="number" id="hid" name="destname">
+                                        <input type="number" id="miid" name="destname" placeholder="Hour">
+                                        <!-- <input type="number" id="sid" name="destname" placeholder="Seconds"><br><br> -->
+                                    </div>
+                                </div>
+                                <div class="actionWrapper">
+                                <button type="submit" class="submit_button" >Predict</button>
+                                </div>
+                                <div id="result"></div>
+                        <!-- <input type="submit" value="Submit" > -->
+                        </div>
+                    </form>
+                    <script>
+                        const form = document.getElementById('myForm');
+      
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        
+        const form = document.getElementById("myForm");
+        const originlocation = document.getElementById("oriid").value
+        const destlocation = document.getElementById("destid").value
+        const depDate = document.getElementById("ddateid").value
+        const depTime = document.getElementById("depTime").value
+        const arrDate = document.getElementById("adateid").value
+        const arrTime = document.getElementById("arrTime").value
+        const aircraftNumber = document.getElementById("aircraftid").value
+        const carrierCode = document.getElementById("carrierid").value
+        const flightNumber = document.getElementById("flightid").value
+        // const year = document.getElementById("yid").value
+        // const month = document.getElementById("mid").value
+        // const date = document.getElementById("did").value
+        const hour = document.getElementById("hid").value
+        const minute = document.getElementById("miid").value
+        // const second = document.getElementById("sid").value
+        
+        const duration = "PT"+hour+"H"+minute+"M"
+
+            var url = `https://test.api.amadeus.com/v1/travel/predictions/flight-delay?originLocationCode=${encodeURIComponent(originlocation)}&destinationLocationCode=${encodeURIComponent(destlocation)}&departureDate=${encodeURIComponent(depDate)}&departureTime=${depTime}&arrivalDate=${encodeURIComponent(arrDate)}&arrivalTime=${arrTime}&aircraftCode=${encodeURIComponent(aircraftNumber)}&carrierCode=${encodeURIComponent(carrierCode)}&flightNumber=${encodeURIComponent(flightNumber)}&duration=${encodeURIComponent(duration)}`
+
+            console.log(arrTime,depTime);
+            const accessToken = "fqHb7LGXUYszXsVGixZmPfmA9djC";
+            const timeout = 5000;
+            fetch(url, {
+                method: "GET",
+                headers: {
+                "Authorization": `Bearer ${accessToken}`,
+                },
+                // body: formData,
+            },{ timeout })
+            .then(response => response.json())
+            .then(data => {
+                var prob1=data.data[0].probability;
+                var res1=data.data[0].result;
+                var prob2=data.data[1].probability;
+                var res2=data.data[1].result;
+                var prob3=data.data[2].probability;
+                var res3=data.data[2].result;
+                var prob4=data.data[3].probability;
+                var res4=data.data[3].result;
+                var highest = Math.max(prob1,prob2,prob3,prob4)
+                console.log(res1,res2,res3,res4)
+                // let strr="";
+                console.log(highest)
+                if(highest == prob1){
+                    var strr = res1;
+                    localStorage.setItem('formData', JSON.stringify({ strr }));
+                    window.location.replace("/result");
+                    // document.getElementById("result").innerHTML = strr;
+                } 
+                else if(highest == prob2){
+                    var strr = res2;
+                    localStorage.setItem('formData', JSON.stringify({ strr }));
+                    window.location.replace("/result");
+                    // document.getElementById("result").innerHTML = strr;
+                } 
+                else if(highest == prob3){
+                    var strr = res3;
+                    localStorage.setItem('formData', JSON.stringify({ strr }));
+                    window.location.replace("/result");
+                    // document.getElementById("result").innerHTML = strr;
+                } 
+                else{
+                    var strr = res4;
+                    localStorage.setItem('formData', JSON.stringify({ strr }));
+                    // href="/login"
+                    window.location.replace("/result");
+                    // document.getElementById("result").innerHTML = strr;
+                } 
+
+                console.log(strr);
+                // for(let i =0;i<4;i++){
+                //     if(highest===data.data[i].probability){
+                //         document.getElementById("result").innerHTML = JSON.stringify(data.data[i].result);
+                //         break;
+                //     }
+
+                // }
+                console.log(strr);
+                
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        // localStorage.setItem('formData', JSON.stringify({ name, email }));
+        
+        // window.location.replace('result.html');
+      });
+                    </script>
+                    <!-- <script src="main.js"></script> -->
+                </div>
+            </div>
+        </section>	
+    </body>
+</html>
+
+
+<!-- <div class="col-md-4 col-md-offset-4 form-card">
+	<div>
+		<p>Profile Detail</p>
+	</div>
+	<div>
+		<center>
+			<table class="table table-hover text-center">
+				<tr>
+					<td>Name </td>
+					<td>
+						<%= name %>
+					</td>
+				</tr>
+				<tr>
+					<td>Email </td>
+					<td>
+						<%= email %>
+					</td>
+				</tr>
+			</table>
+		</center>
+	</div>
+	<div class="abc" id="LangTable">
+		<a href="/logout">Logout</a>
+	</div>
+</div> -->
+
+
+
+<!-- <h1>Flight Delay Prediction</h1>
+
+    <form id="myForm" >
+        <label for="oriloc">Enter the Origin Location Code :</label>
+            <!-- <input type="text" id="oriid" name="oriname"><br><br> -->
+            <!-- <select name="oriname" id="oriid">
+                <option value="ATL">ATL</option>
+                <option value="CLT">CLT</option>
+                <option value="DEN">DEN</option>
+                <option value="DFW">DFW</option>
+                <option value="EWR">EWR</option>
+                <option value="IAH">IAH</option>
+                <option value="JFK">JFK</option>
+                <option value="LAS">LAS</option>
+                <option value="LAX">LAX</option>
+                <option value="MCO">MCO</option>
+                <option value="MIA">MIA</option>
+                <option value="ORD">ORD</option>
+                <option value="PHX">PHX</option>
+                <option value="SEA">SEA</option>
+                <option value="SFO">SFO</option>
+            </select><br><br>
+        <label for="desloc">Enter the Destination Location Code :</label>
+            <!-- <input type="text" id="destid" name="destname"><br><br> -->
+            <!-- <select name="destname" id="destid">
+                <option value="ATL">ATL</option>
+                <option value="CLT">CLT</option>
+                <option value="DEN">DEN</option>
+                <option value="DFW">DFW</option>
+                <option value="EWR">EWR</option>
+                <option value="IAH">IAH</option>
+                <option value="JFK">JFK</option>
+                <option value="LAS">LAS</option>
+                <option value="LAX">LAX</option>
+                <option value="MCO">MCO</option>
+                <option value="MIA">MIA</option>
+                <option value="ORD">ORD</option>
+                <option value="PHX">PHX</option>
+                <option value="SEA">SEA</option>
+                <option value="SFO">SFO</option>
+            </select><br><br>
+        <label for="departureDate">Departure Date :</label>
+            <input type="date" id="ddateid" name="datename">
+        <label for="departureTime"> Departure Time :</label>
+            <input type="time" id="depTime" value="16:32:55"><br><br>
+        
+        <label for="arrivalDate">Arrival Date :</label>
+            <input type="date" id="adateid" name="datename">
+        <label for="arrivalTime">Arrival Time :</label>
+            <input type="time" id="arrTime" value="15:10:40"><br><br>
+
+        <label for="aircraftCode">Enter the Aircraft Code :</label>
+            <input type="text" id="aircraftid" name="aircrafname"><br><br>
+        <label for="carrierCode">Enter the Carrier Date :</label>
+            <input type="text" id="carrierid" name="carriername"><br><br>
+        <label for="flightNumber">Enter the Flight Number :</label>
+            <input type="number" id="flightid" name="flightname"><br><br>
+
+        <label for="PD">Duration Period :</label>
+                <input type="number" id="yid" name="destname">
+                <input type="number" id="mid" name="destname">
+                <input type="number" id="did" name="destname"><br><br>
+
+        <label for="PD">Duration Time :</label>
+                <input type="number" id="hid" name="destname">
+                <input type="number" id="miid" name="destname">
+                <input type="number" id="sid" name="destname"><br><br>
+        
+        <input type="button" value="Submit" onclick="sendData()">
+    </form> -->
+    <!-- <div id="result"></div> --> 
+	<!-- <script src="main.js"></script>  -->
